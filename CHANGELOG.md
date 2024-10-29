@@ -1,5 +1,13 @@
 # Solspace Calendar Changelog
 
+## 5.0.11 - 2024-10-28
+
+### Changed
+- Updated the `fix-field-layout-tabs-elements-uids` console command to address orphaned field layout tabs belonging to the Calendar Event element type. 
+
+### Fixed
+- Fixed a bug where the **Author** attribute was included by mistake in the Sort options list for the CP Events index.
+
 ## 5.0.10 - 2024-10-09
 
 ### Added
