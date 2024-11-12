@@ -1761,7 +1761,7 @@ class Event extends Element implements \JsonSerializable
             case 'author':
                 $author = $this->getAuthor();
 
-                return $author ? \Craft::$app->view->renderTemplate('_elements/element', ['element' => $author]) : '';
+                return $author ? Cp::elementHtml($author) : '';
 
             case 'calendar':
                 return sprintf(
@@ -1790,7 +1790,7 @@ class Event extends Element implements \JsonSerializable
             case 'author':
                 $author = $this->getAuthor();
 
-                return $author ? \Craft::$app->view->renderTemplate('_elements/element', ['element' => $author]) : '';
+                return $author ? Cp::elementChipHtml($author) : '';
 
             case 'calendar':
                 return sprintf(
