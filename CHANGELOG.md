@@ -1,5 +1,12 @@
 # Solspace Calendar Changelog
 
+## 5.0.12 - 2024-11-12
+
+### Fixed
+- Fixed a bug that prevented orphaned event field layouts from being deleted during garbage collection.
+- Fixed a bug that stopped Neo field translations from working in some situations.
+- Fixed a deprecation notice when using Calendar in Craft 5.x.
+
 ## 5.0.11 - 2024-10-28
 
 ### Changed
