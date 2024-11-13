@@ -44,7 +44,7 @@ class CIELab extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s', $this->lightness, $this->a_dimension, $this->b_dimension);
+        return \sprintf('%s,%s,%s', $this->lightness, $this->a_dimension, $this->b_dimension);
     }
 
     public static function create($lightness, $a_dimension, $b_dimension): self

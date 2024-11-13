@@ -145,7 +145,7 @@ class UiDataToEventTransformer
     {
         return array_map(
             function ($value) use ($interval) {
-                return sprintf('%d%s', $interval, $value);
+                return \sprintf('%d%s', $interval, $value);
             },
             $days
         );

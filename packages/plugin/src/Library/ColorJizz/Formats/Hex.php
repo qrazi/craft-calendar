@@ -255,7 +255,7 @@ class Hex extends ColorJizz
     public function __construct(int $hex)
     {
         if ($hex > 0xFFFFFF || $hex < 0) {
-            throw new InvalidArgumentException(sprintf('Parameter hex out of range (%s)', $hex));
+            throw new InvalidArgumentException(\sprintf('Parameter hex out of range (%s)', $hex));
         }
 
         $this->hex = $hex;
@@ -409,7 +409,7 @@ class Hex extends ColorJizz
         }
 
         if (!preg_match('/[0-9A-F]{6}/i', $str)) {
-            throw new InvalidArgumentException(sprintf('Parameter str is an invalid hex string (%s)', $str));
+            throw new InvalidArgumentException(\sprintf('Parameter str is an invalid hex string (%s)', $str));
         }
 
         return new self(hexdec($str));

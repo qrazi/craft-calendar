@@ -1402,12 +1402,12 @@ class EventQuery extends ElementQuery
     {
         if (\is_array($this->orderBy)) {
             foreach ($this->orderBy as $key => $sortDirection) {
-                if (preg_match('/\\.?startDate$/', $key)) {
+                if (preg_match('/\.?startDate$/', $key)) {
                     return true;
                 }
             }
         } else {
-            return null === $this->orderBy || preg_match('/\\.?startDate$/', $this->orderBy);
+            return null === $this->orderBy || preg_match('/\.?startDate$/', $this->orderBy);
         }
 
         return false;
@@ -1422,12 +1422,12 @@ class EventQuery extends ElementQuery
     {
         if (\is_array($this->orderBy)) {
             foreach ($this->orderBy as $key => $sortDirection) {
-                if (preg_match('/\\.?endDate$/', $key)) {
+                if (preg_match('/\.?endDate$/', $key)) {
                     return true;
                 }
             }
         } else {
-            return null === $this->orderBy || preg_match('/\\.?endDate$/', $this->orderBy);
+            return null === $this->orderBy || preg_match('/\.?endDate$/', $this->orderBy);
         }
 
         return false;
@@ -1480,7 +1480,7 @@ class EventQuery extends ElementQuery
 
     private function extractDateFromCacheKey(int $key): Carbon
     {
-        preg_match('/^(\\d{4})(\\d{2})(\\d{2})?$/', $key, $matches);
+        preg_match('/^(\d{4})(\d{2})(\d{2})?$/', $key, $matches);
 
         $year = $matches[1] ?? null;
         $month = $matches[2] ?? null;

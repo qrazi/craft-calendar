@@ -44,7 +44,7 @@ class XYZ extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
+        return \sprintf('%s,%s,%s', $this->x, $this->y, $this->z);
     }
 
     /**
