@@ -617,7 +617,7 @@ class LegacyEventsController extends EventsController
 
                     $repeatsByWeekDay = array_map(
                         function ($value) use ($repeatsByDayInterval) {
-                            return sprintf('%d%s', $repeatsByDayInterval, $value);
+                            return \sprintf('%d%s', $repeatsByDayInterval, $value);
                         },
                         $repeatsByWeekDay
                     );
@@ -647,7 +647,7 @@ class LegacyEventsController extends EventsController
                     if (\is_array($repeatsByWeekDay)) {
                         $repeatsByWeekDay = array_map(
                             function ($value) use ($repeatsByDayInterval) {
-                                return sprintf('%d%s', $repeatsByDayInterval, $value);
+                                return \sprintf('%d%s', $repeatsByDayInterval, $value);
                             },
                             $repeatsByWeekDay
                         );
@@ -660,7 +660,7 @@ class LegacyEventsController extends EventsController
                 break;
 
             default:
-                throw new EventException(sprintf("Frequency type '%s' not recognized", $event->freq));
+                throw new EventException(\sprintf("Frequency type '%s' not recognized", $event->freq));
         }
 
         $event->rrule = $event->getRRuleRFCString();

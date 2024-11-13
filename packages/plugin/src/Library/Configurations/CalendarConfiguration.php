@@ -31,7 +31,7 @@ abstract class CalendarConfiguration
             if (property_exists(static::class, $key)) {
                 $this->{$key} = $value;
             } else {
-                throw new ConfigurationException(sprintf('Configuration property "%s" does not exist. Available properties are: "%s"', $key, implode(', ', $availableProperties)));
+                throw new ConfigurationException(\sprintf('Configuration property "%s" does not exist. Available properties are: "%s"', $key, implode(', ', $availableProperties)));
             }
         }
     }

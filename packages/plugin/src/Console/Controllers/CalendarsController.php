@@ -35,7 +35,7 @@ class CalendarsController extends Controller
         $this->_fixUids($count);
 
         if ($count) {
-            $summary = sprintf('Fixed %s duplicate %s.', $count, 1 === $count ? 'UUID' : 'UUIDs');
+            $summary = \sprintf('Fixed %s duplicate %s.', $count, 1 === $count ? 'UUID' : 'UUIDs');
         } else {
             $summary = 'No duplicate UUIDs were found.';
         }

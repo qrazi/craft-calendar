@@ -160,7 +160,7 @@ class Calendar extends Plugin
         }
 
         if (method_exists(Gc::class, 'deleteOrphanedFieldLayouts')) {
-            Event::on(Gc::class, Gc::EVENT_RUN, function(Event $event) {
+            Event::on(Gc::class, Gc::EVENT_RUN, function (Event $event) {
                 /** @var Gc $gc */
                 $gc = $event->sender;
                 $gc->deleteOrphanedFieldLayouts(
@@ -305,7 +305,7 @@ class Calendar extends Plugin
                 'resources' => ResourcesController::class,
             ];
         } else {
-            $this->controllerNamespace = 'Solspace\\Calendar\\Console\\Controllers';
+            $this->controllerNamespace = 'Solspace\Calendar\Console\Controllers';
         }
     }
 

@@ -44,7 +44,7 @@ class CMY extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s', $this->cyan, $this->magenta, $this->yellow);
+        return \sprintf('%s,%s,%s', $this->cyan, $this->magenta, $this->yellow);
     }
 
     public static function create($cyan, $magenta, $yellow): self

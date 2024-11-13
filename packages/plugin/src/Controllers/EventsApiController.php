@@ -372,6 +372,6 @@ class EventsApiController extends BaseController
             return [$event, $deltaSeconds, $isAllDay];
         }
 
-        throw new HttpException(sprintf('No event with ID [%d] found', $eventId));
+        throw new HttpException(\sprintf('No event with ID [%d] found', $eventId));
     }
 }

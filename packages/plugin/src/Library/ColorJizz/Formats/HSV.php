@@ -43,7 +43,7 @@ class HSV extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s', $this->hue, $this->saturation, $this->value);
+        return \sprintf('%s,%s,%s', $this->hue, $this->saturation, $this->value);
     }
 
     /**

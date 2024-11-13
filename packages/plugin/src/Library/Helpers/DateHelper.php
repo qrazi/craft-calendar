@@ -194,13 +194,13 @@ class DateHelper
 
         $modifiedDayList = [];
         foreach ($dayListArray as $day) {
-            if (preg_match('/^(-)?(\\d+)?(SU|MO|TU|WE|TH|FR|SA)$/', $day, $matches)) {
+            if (preg_match('/^(-)?(\d+)?(SU|MO|TU|WE|TH|FR|SA)$/', $day, $matches)) {
                 $isDayNegative = '-' === $matches[1];
                 $offsetNumber = $matches[2];
                 $day = strtoupper($matches[3]);
             } else {
                 throw new DateHelperException(
-                    sprintf(
+                    \sprintf(
                         'shiftByDays() only accepts these array values: %s. %s given.',
                         implode(',', array_keys(self::$weekDays)),
                         $day
@@ -356,10 +356,10 @@ class DateHelper
                 $hour = floor($offset / 60);
                 $minutes = floor(abs($offset) % 60);
 
-                $format = sprintf('%+d', $hour);
+                $format = \sprintf('%+d', $hour);
 
                 if ($minutes) {
-                    $format .= ':'.sprintf('%02u', $minutes);
+                    $format .= ':'.\sprintf('%02u', $minutes);
                 }
             } else {
                 $format = '';

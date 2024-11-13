@@ -81,31 +81,31 @@ class ExportCalendarToIcs extends AbstractExportCalendar
         $uidHash = md5($eventId.$title.$description.$date->timestamp);
 
         $exportString .= "BEGIN:VEVENT\r\n";
-        $exportString .= sprintf("UID:%s@solspace.com\r\n", $uidHash);
-        $exportString .= sprintf("DTSTAMP:%s\r\n", $this->now->format(self::DATE_TIME_FORMAT));
+        $exportString .= \sprintf("UID:%s@solspace.com\r\n", $uidHash);
+        $exportString .= \sprintf("DTSTAMP:%s\r\n", $this->now->format(self::DATE_TIME_FORMAT));
 
         if ($description) {
-            $exportString .= sprintf("DESCRIPTION:%s\r\n", $this->prepareString(strip_tags($description)));
+            $exportString .= \sprintf("DESCRIPTION:%s\r\n", $this->prepareString(strip_tags($description)));
         }
         if ($location) {
-            $exportString .= sprintf("LOCATION:%s\r\n", $this->prepareString(strip_tags($location)));
+            $exportString .= \sprintf("LOCATION:%s\r\n", $this->prepareString(strip_tags($location)));
         }
 
         if ($event->isAllDay()) {
-            $exportString .= sprintf("DTSTART;VALUE=DATE:%s\r\n", $startDate->format(self::DATE_FORMAT));
-            $exportString .= sprintf(
+            $exportString .= \sprintf("DTSTART;VALUE=DATE:%s\r\n", $startDate->format(self::DATE_FORMAT));
+            $exportString .= \sprintf(
                 "DTEND;VALUE=DATE:%s\r\n",
                 $endDate->copy()->addDay()->format(self::DATE_FORMAT)
             );
         } elseif ('UTC' === $timezone) {
-            $exportString .= sprintf("DTSTART:%sZ\r\n", $startDate->format(self::DATE_TIME_FORMAT));
-            $exportString .= sprintf("DTEND:%sZ\r\n", $endDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTSTART:%sZ\r\n", $startDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTEND:%sZ\r\n", $endDate->format(self::DATE_TIME_FORMAT));
         } elseif (DateHelper::FLOATING_TIMEZONE === $timezone) {
-            $exportString .= sprintf("DTSTART:%s\r\n", $startDate->format(self::DATE_TIME_FORMAT));
-            $exportString .= sprintf("DTEND:%s\r\n", $endDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTSTART:%s\r\n", $startDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTEND:%s\r\n", $endDate->format(self::DATE_TIME_FORMAT));
         } else {
-            $exportString .= sprintf("DTSTART;TZID=%s:%s\r\n", $timezone, $startDate->format(self::DATE_TIME_FORMAT));
-            $exportString .= sprintf("DTEND;TZID=%s:%s\r\n", $timezone, $endDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTSTART;TZID=%s:%s\r\n", $timezone, $startDate->format(self::DATE_TIME_FORMAT));
+            $exportString .= \sprintf("DTEND;TZID=%s:%s\r\n", $timezone, $endDate->format(self::DATE_TIME_FORMAT));
         }
 
         $selectDates = $event->getSelectDates();
@@ -113,7 +113,7 @@ class ExportCalendarToIcs extends AbstractExportCalendar
             $rrule = $event->getRRule();
             if ($rrule) {
                 [$dtstart, $rrule] = explode("\n", $rrule);
-                $exportString .= sprintf("%s\r\n", $rrule);
+                $exportString .= \sprintf("%s\r\n", $rrule);
             }
             $exceptionDatesValues = [];
             foreach ($event->getExceptionDateStrings() as $exceptionDate) {
@@ -129,14 +129,14 @@ class ExportCalendarToIcs extends AbstractExportCalendar
             $exceptionDates = implode(',', $exceptionDatesValues);
             if ($exceptionDates) {
                 if ($event->isAllDay()) {
-                    $exportString .= sprintf("EXDATE;VALUE=DATE:%s\r\n", $exceptionDates);
+                    $exportString .= \sprintf("EXDATE;VALUE=DATE:%s\r\n", $exceptionDates);
                 } else {
-                    $exportString .= sprintf("EXDATE:%s\r\n", $exceptionDates);
+                    $exportString .= \sprintf("EXDATE:%s\r\n", $exceptionDates);
                 }
             }
         }
 
-        $exportString .= sprintf("SUMMARY:%s\r\n", $this->prepareString($title));
+        $exportString .= \sprintf("SUMMARY:%s\r\n", $this->prepareString($title));
 
         return $exportString."END:VEVENT\r\n";
     }

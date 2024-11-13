@@ -118,7 +118,7 @@ class DateHelperTest extends TestCase
         self::assertSame(
             $updatedList,
             $expectedResult,
-            sprintf('Shifting %s by %d days. Expecting %s', $dayList, $shiftAmount, $expectedResult)
+            \sprintf('Shifting %s by %d days. Expecting %s', $dayList, $shiftAmount, $expectedResult)
         );
     }
 
@@ -168,7 +168,7 @@ class DateHelperTest extends TestCase
         self::assertSame(
             $expectedResult,
             $updatedList,
-            sprintf('Shifting %s by %d days. Expecting %s', $monthDayList, $shiftAmount, $expectedResult)
+            \sprintf('Shifting %s by %d days. Expecting %s', $monthDayList, $shiftAmount, $expectedResult)
         );
     }
 
@@ -199,7 +199,7 @@ class DateHelperTest extends TestCase
         self::assertSame(
             $expectedResult,
             $updatedList,
-            sprintf(
+            \sprintf(
                 'Shifting %s by %d days. Expecting %s',
                 $monthList,
                 $shiftAmount,

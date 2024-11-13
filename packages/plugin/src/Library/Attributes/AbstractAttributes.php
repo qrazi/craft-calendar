@@ -125,7 +125,7 @@ abstract class AbstractAttributes
 
             if (!\in_array($attribute, $this->validAttributes, true)) {
                 throw new AttributeException(
-                    sprintf(
+                    \sprintf(
                         'Attribute "%s" is not allowed. Allowed attributes are: "%s"',
                         $attribute,
                         implode('", "', $this->validAttributes)
@@ -150,7 +150,7 @@ abstract class AbstractAttributes
                 $conditions['order'] .= ' '.$this->sort;
             } else {
                 throw new AttributeException(
-                    sprintf(
+                    \sprintf(
                         'Cannot order by "%s". Allowed order fields are: "%s"',
                         $this->order,
                         implode('", "', $this->validAttributes)
