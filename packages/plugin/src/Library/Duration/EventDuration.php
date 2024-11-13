@@ -45,27 +45,27 @@ class EventDuration
     {
         $timeString = '';
         if ($this->years) {
-            $timeString .= sprintf(' %dy', $this->years);
+            $timeString .= \sprintf(' %dy', $this->years);
         }
 
         if ($this->months) {
-            $timeString .= sprintf(' %dmon', $this->months);
+            $timeString .= \sprintf(' %dmon', $this->months);
         }
 
         if ($this->days) {
-            $timeString .= sprintf(' %dd', $this->days);
+            $timeString .= \sprintf(' %dd', $this->days);
         }
 
         if ($this->hours) {
-            $timeString .= sprintf(' %dh', $this->hours);
+            $timeString .= \sprintf(' %dh', $this->hours);
         }
 
         if ($this->minutes) {
-            $timeString .= sprintf(' %dm', $this->minutes);
+            $timeString .= \sprintf(' %dm', $this->minutes);
         }
 
         if ($this->seconds) {
-            $timeString .= sprintf(' %ds', $this->seconds);
+            $timeString .= \sprintf(' %ds', $this->seconds);
         }
 
         return trim($timeString);

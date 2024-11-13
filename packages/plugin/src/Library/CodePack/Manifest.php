@@ -69,7 +69,7 @@ class Manifest
     private function parseManifestFile(string $manifestPath)
     {
         if (!file_exists($manifestPath)) {
-            throw new ManifestNotPresentException(sprintf('Manifest file is not present in %s', $manifestPath));
+            throw new ManifestNotPresentException(\sprintf('Manifest file is not present in %s', $manifestPath));
         }
 
         $content = file_get_contents($manifestPath);
@@ -79,13 +79,13 @@ class Manifest
             if (\in_array($property, self::$requiredProperties, true)) {
                 if (!\array_key_exists($property, $data)) {
                     throw new ManifestException(
-                        sprintf('Mandatory "%s" property not defined in manifest.json', $property)
+                        \sprintf('Mandatory "%s" property not defined in manifest.json', $property)
                     );
                 }
 
                 if (empty($data[$property])) {
                     throw new ManifestException(
-                        sprintf('Mandatory "%s" property is empty in manifest.json', $property)
+                        \sprintf('Mandatory "%s" property is empty in manifest.json', $property)
                     );
                 }
             }

@@ -50,7 +50,7 @@ class CMYK extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s,%s', $this->cyan, $this->magenta, $this->yellow, $this->key);
+        return \sprintf('%s,%s,%s,%s', $this->cyan, $this->magenta, $this->yellow, $this->key);
     }
 
     public static function create($cyan, $magenta, $yellow, $key): self

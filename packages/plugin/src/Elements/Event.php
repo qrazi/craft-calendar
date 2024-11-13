@@ -1010,7 +1010,7 @@ class Event extends Element implements \JsonSerializable
         $rruleObject = $this->getRRuleObject();
 
         $locale = $locale->id;
-        $locale = preg_replace('/^(\\w+)_.*$/', '$1', $locale);
+        $locale = preg_replace('/^(\w+)_.*$/', '$1', $locale);
 
         if ($rruleObject) {
             $string = $rruleObject->humanReadable([
@@ -1764,7 +1764,7 @@ class Event extends Element implements \JsonSerializable
                 return $author ? Cp::elementHtml($author) : '';
 
             case 'calendar':
-                return sprintf(
+                return \sprintf(
                     '<div style="white-space: nowrap;"><span class="color-indicator" style="background-color: %s;"></span>%s</div>',
                     $this->getCalendar()->color,
                     $this->getCalendar()->name
@@ -1793,7 +1793,7 @@ class Event extends Element implements \JsonSerializable
                 return $author ? Cp::elementChipHtml($author) : '';
 
             case 'calendar':
-                return sprintf(
+                return \sprintf(
                     '<div style="white-space: nowrap;"><span class="color-indicator" style="background-color: %s;"></span>%s</div>',
                     $this->getCalendar()->color,
                     $this->getCalendar()->name

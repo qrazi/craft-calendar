@@ -47,7 +47,7 @@ class CIELCh extends ColorJizz
      */
     public function __toString(): string
     {
-        return sprintf('%s,%s,%s', $this->lightness, $this->chroma, $this->hue);
+        return \sprintf('%s,%s,%s', $this->lightness, $this->chroma, $this->hue);
     }
 
     /**

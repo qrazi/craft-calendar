@@ -37,13 +37,13 @@ class RGB extends ColorJizz
         $this->toSelf = 'toRGB';
 
         if ($red < 0 || $red > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter red out of range (%s)', $red));
+            throw new InvalidArgumentException(\sprintf('Parameter red out of range (%s)', $red));
         }
         if ($green < 0 || $green > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter green out of range (%s)', $green));
+            throw new InvalidArgumentException(\sprintf('Parameter green out of range (%s)', $green));
         }
         if ($blue < 0 || $blue > 255) {
-            throw new InvalidArgumentException(sprintf('Parameter blue out of range (%s)', $blue));
+            throw new InvalidArgumentException(\sprintf('Parameter blue out of range (%s)', $blue));
         }
 
         $this->red = $red;

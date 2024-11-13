@@ -30,7 +30,7 @@ class CodePack
     {
         if (!file_exists($location)) {
             throw new CodePackException(
-                sprintf(
+                \sprintf(
                     "CodePack folder does not exist in '%s'",
                     $location
                 )
@@ -46,7 +46,7 @@ class CodePack
 
     public static function getCleanPrefix(string $prefix): string
     {
-        $prefix = (string) preg_replace('/\\/+/', '/', $prefix);
+        $prefix = (string) preg_replace('/\/+/', '/', $prefix);
 
         return trim($prefix, '/');
     }

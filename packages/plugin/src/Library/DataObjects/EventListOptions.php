@@ -116,7 +116,7 @@ class EventListOptions
             $this->setSort(null);
         }
 
-        if (preg_match('/(.+)\\s+(DESC|ASC)$/i', $order, $matches)) {
+        if (preg_match('/(.+)\s+(DESC|ASC)$/i', $order, $matches)) {
             $order = $matches[1];
             $this->setSort($matches[2]);
         }
